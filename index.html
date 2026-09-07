@@ -367,6 +367,116 @@
     margin-top:-48px;
   }
 
+  /* ---------- SEKCIJA: PROBLEM I REŠENJE (switch) ---------- */
+  .ps-head{
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .ps-head .display{ margin-bottom:20px; }
+  .ps-head .lead{ margin:0 auto; }
+
+  /* pill switch - siva staza, beli klizač */
+  .ps-switch{
+    position:relative;
+    display:inline-grid;
+    grid-template-columns:1fr 1fr;
+    background:var(--cream-2);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px;
+    margin-top:44px;
+  }
+
+  .ps-thumb{
+    position:absolute;
+    top:6px;
+    left:6px;
+    width:calc(50% - 6px);
+    height:calc(100% - 12px);
+    background:#fff;
+    border-radius:999px;
+    box-shadow:0 2px 10px rgba(29,33,24,.10);
+    transition:transform .28s cubic-bezier(.4,0,.2,1);
+  }
+  .ps-switch.on-resenje .ps-thumb{ transform:translateX(100%); }
+
+  .ps-opt{
+    position:relative;
+    z-index:1;
+    appearance:none;
+    -webkit-appearance:none;
+    background:transparent;
+    border:0;
+    border-radius:999px;
+    padding:14px 44px;
+    font-family:'Marcellus', serif;
+    font-size:16px;
+    line-height:1.2;
+    color:var(--muted);
+    white-space:nowrap;
+    cursor:pointer;
+    transition:color .22s ease;
+  }
+  .ps-opt.is-active{ color:var(--ink); cursor:default; }
+  .ps-opt:focus-visible{ outline:2px solid var(--green); outline-offset:4px; }
+
+  .ps-panels{ margin-top:56px; }
+  .ps-panel.cards-3{ align-items:stretch; }
+  .ps-panel[hidden]{ display:none; }
+  .ps-panel{ animation:psFade .3s ease both; }
+
+  @keyframes psFade{
+    from{ opacity:0; transform:translateY(8px); }
+    to{ opacity:1; transform:none; }
+  }
+
+  .ps-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--r-lg);
+    padding:32px 28px;
+  }
+  #panel-resenje .ps-card{
+    background:var(--green-soft);
+    border-color:#cfe0b4;
+  }
+
+  .ps-ico{
+    width:44px;
+    height:44px;
+    border-radius:999px;
+    background:var(--cream-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+  }
+  .ps-ico svg{
+    width:18px;
+    height:18px;
+    fill:none;
+    stroke:var(--muted);
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  #panel-resenje .ps-ico{ background:#fff; }
+  #panel-resenje .ps-ico svg{ stroke:var(--green); }
+
+  .ps-card h3{ font-size:20px; margin-bottom:12px; }
+  .ps-card p{ font-size:15px; }
+
+  @media (max-width:991px){
+    .ps-panels{ margin-top:40px; }
+    .ps-card{ padding:28px 24px; }
+  }
+
+  @media (max-width:480px){
+    .ps-switch{ display:grid; grid-template-columns:1fr 1fr; width:100%; margin-top:36px; }
+    .ps-opt{ padding:14px 16px; }
+  }
+
   /* ---------- SEKCIJA: TIPOVI (expander) ---------- */
   .split{
     display:grid;
@@ -942,6 +1052,90 @@
     .story-grid{ grid-template-columns:1fr; gap:24px; }
   }
 
+  /* ---------- SEKCIJA: UTISCI (testimonijali) ---------- */
+  .quote-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+
+  .quote-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--r-lg);
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+  .quote-card.accent{
+    background:var(--green-soft);
+    border-color:#cfe0b4;
+  }
+
+  .quote-mark{
+    width:32px;
+    height:32px;
+    fill:var(--green);
+    opacity:.5;
+    margin-bottom:20px;
+  }
+
+  .quote-stars{
+    display:flex;
+    gap:4px;
+    margin-bottom:16px;
+  }
+  .quote-stars svg{
+    width:16px;
+    height:16px;
+    fill:var(--green);
+  }
+
+  .quote-card blockquote{
+    font-size:17px;
+    line-height:1.6;
+    color:var(--ink);
+    margin-bottom:28px;
+  }
+
+  .quote-person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:auto;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+  .quote-card.accent .quote-person{ border-top-color:#cfe0b4; }
+
+  .quote-initials{
+    width:44px;
+    height:44px;
+    flex:0 0 44px;
+    border-radius:999px;
+    background:var(--green-soft);
+    color:var(--green-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+  }
+  .quote-card.accent .quote-initials{ background:#fff; }
+
+  .quote-person strong{ display:block; font-size:16px; font-weight:400; }
+  .quote-person span{
+    font-family:var(--micro);
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  @media (max-width:991px){
+    .quote-grid{ grid-template-columns:1fr; }
+    .quote-card{ padding:28px 24px; }
+  }
+
   /* ---------- SEKCIJA: MEDIJI ---------- */
   .media-hero{
     display:grid;
@@ -1177,6 +1371,65 @@
 </section>
 
 <main class="page">
+
+  <!-- PROBLEM I REŠENJE -->
+  <section class="section" id="problem-resenje">
+    <div class="wrap">
+      <div class="ps-head">
+        <span class="eyebrow">Problem i rešenje</span>
+        <h2 class="display">Problem nije u volji, nego u <span class="hl">pristupu</span>.</h2>
+        <p class="lead">Većina ljudi zna šta bi trebalo da jede. Problem nastane kada opšti jelovnik naleti na stvaran život - posao, smene, porodicu i navike koje se ne menjaju preko noći. Prebacite prekidač i pogledajte kako to rešavamo.</p>
+
+        <div class="ps-switch" id="psSwitch" role="tablist" aria-label="Problem ili rešenje">
+          <span class="ps-thumb" aria-hidden="true"></span>
+          <button type="button" class="ps-opt is-active" id="tab-problem" role="tab" aria-selected="true" aria-controls="panel-problem">Problem</button>
+          <button type="button" class="ps-opt" id="tab-resenje" role="tab" aria-selected="false" aria-controls="panel-resenje" tabindex="-1">Rešenje</button>
+        </div>
+      </div>
+
+      <div class="ps-panels">
+        <div class="ps-panel cards-3" id="panel-problem" role="tabpanel" aria-labelledby="tab-problem">
+          <article class="ps-card">
+            <span class="ps-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            <h3>Restriktivne dijete</h3>
+            <p>Jelovnik od hiljadu i dvesta kalorija izdržite dve nedelje. Onda telo uspori metabolizam, glad postane jača od volje i sve se vrati - često sa viškom.</p>
+          </article>
+
+          <article class="ps-card">
+            <span class="ps-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            <h3>Isti plan za svakoga</h3>
+            <p>Postoji šest tipova gojaznosti, a u opticaju je jedan te isti jelovnik za sve. Ono što je pomoglo koleginici kod vas ne mora da pomeri ništa.</p>
+          </article>
+
+          <article class="ps-card">
+            <span class="ps-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            <h3>Vaga kao jedini dokaz</h3>
+            <p>Brojka na vagi ne kaže da li ste izgubili salo ili mišiće. Bez merenja telesnog sastava radite naslepo i lako izgubite ono što ste hteli da sačuvate.</p>
+          </article>
+        </div>
+
+        <div class="ps-panel cards-3" id="panel-resenje" role="tabpanel" aria-labelledby="tab-resenje" hidden>
+          <article class="ps-card">
+            <span class="ps-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg></span>
+            <h3>Ishrana bez gladovanja</h3>
+            <p>Krećemo od vašeg dana i obroka koje već jedete. Menjamo redosled, količine i izbor namirnica tako da plan možete da izdržite i posle šest meseci.</p>
+          </article>
+
+          <article class="ps-card">
+            <span class="ps-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg></span>
+            <h3>Plan po tipu gojaznosti</h3>
+            <p>Prvo utvrdimo koji od šest tipova gojaznosti vas opisuje, pa tek onda pravimo plan ishrane i fizičke aktivnosti - za vaše telo, a ne za prosek.</p>
+          </article>
+
+          <article class="ps-card">
+            <span class="ps-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg></span>
+            <h3>Merenje na svakoj kontroli</h3>
+            <p>Pratimo procenat masti, mišićnu masu i obime, ne samo kilograme. Tako vidite šta se stvarno menja i na vreme korigujemo ono što ne radi.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- TIPOVI GOJAZNOSTI -->
   <section class="section" id="tipovi">
@@ -1441,6 +1694,76 @@
     </div>
   </section>
 
+  <!-- UTISCI (testimonijali) -->
+  <!-- NAPOMENA: tekstovi utisaka su primeri - zamenite ih pravim izjavama klijenata. -->
+  <section class="section" id="utisci">
+    <div class="wrap">
+      <div class="head-stack">
+        <span class="eyebrow">Utisci klijenata</span>
+        <h2 class="display">Šta kažu ljudi koji su <span class="hl">prošli program</span>.</h2>
+      </div>
+
+      <div class="quote-grid">
+        <article class="quote-card">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 5.4c-3.4 1.4-5.4 4.2-5.4 7.9v5.3h6.6v-6.6H7.5c.1-2 1.1-3.4 3-4.2zm10.2 0c-3.4 1.4-5.4 4.2-5.4 7.9v5.3H21v-6.6h-3.3c.1-2 1.1-3.4 3-4.2z"/></svg>
+          <div class="quote-stars" role="img" aria-label="Ocena 5 od 5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+          </div>
+          <blockquote>Pre ovoga sam probala svaku dijetu koja mi je došla do ruku i uvek sam se vraćala na staro. Ovde niko nije tražio da gladujem - samo smo prošli kroz moj dan i sredili obroke. Kilogrami su krenuli dole sami od sebe.</blockquote>
+          <div class="quote-person">
+            <span class="quote-initials" aria-hidden="true">M. J.</span>
+            <div>
+              <strong>Marija J.</strong>
+              <span>Beograd, program ishrane</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="quote-card accent">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 5.4c-3.4 1.4-5.4 4.2-5.4 7.9v5.3h6.6v-6.6H7.5c.1-2 1.1-3.4 3-4.2zm10.2 0c-3.4 1.4-5.4 4.2-5.4 7.9v5.3H21v-6.6h-3.3c.1-2 1.1-3.4 3-4.2z"/></svg>
+          <div class="quote-stars" role="img" aria-label="Ocena 5 od 5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+          </div>
+          <blockquote>Najviše mi je značilo to što se sve meri. Vidim crno na belo koliko sam masti izgubio, a koliko mišića sam zadržao. To me je držalo kada rezultat na vagi nije bio onakav kakav sam očekivao.</blockquote>
+          <div class="quote-person">
+            <span class="quote-initials" aria-hidden="true">D. P.</span>
+            <div>
+              <strong>Dragan P.</strong>
+              <span>Niš, savetovanje i trening</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="quote-card">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 5.4c-3.4 1.4-5.4 4.2-5.4 7.9v5.3h6.6v-6.6H7.5c.1-2 1.1-3.4 3-4.2zm10.2 0c-3.4 1.4-5.4 4.2-5.4 7.9v5.3H21v-6.6h-3.3c.1-2 1.1-3.4 3-4.2z"/></svg>
+          <div class="quote-stars" role="img" aria-label="Ocena 5 od 5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></svg>
+          </div>
+          <blockquote>Radim u smenama i mislila sam da za mene nema šanse. Napravili smo plan koji radi i kada završim posao u deset uveče. Posle četiri meseca ne samo da imam manje kilograma, nego i više energije.</blockquote>
+          <div class="quote-person">
+            <span class="quote-initials" aria-hidden="true">J. S.</span>
+            <div>
+              <strong>Jelena S.</strong>
+              <span>Kragujevac, online konsultacije</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- MEDIJI -->
   <section class="section" id="mediji">
     <div class="wrap">
@@ -1569,6 +1892,37 @@
       hamburgerBtn.setAttribute('aria-expanded', 'false');
     });
   });
+
+  /* problem / rešenje - pill switch */
+  (function(){
+    var sw = document.getElementById('psSwitch');
+    if(!sw) return;
+    var tabs = [document.getElementById('tab-problem'), document.getElementById('tab-resenje')];
+    var panels = [document.getElementById('panel-problem'), document.getElementById('panel-resenje')];
+
+    function select(i){
+      sw.classList.toggle('on-resenje', i === 1);
+      tabs.forEach(function(tab, idx){
+        var on = idx === i;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.tabIndex = on ? 0 : -1;
+        panels[idx].hidden = !on;
+      });
+    }
+
+    tabs.forEach(function(tab, i){
+      tab.addEventListener('click', function(){ select(i); });
+      tab.addEventListener('keydown', function(e){
+        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+          e.preventDefault();
+          var next = i === 0 ? 1 : 0;
+          select(next);
+          tabs[next].focus();
+        }
+      });
+    });
+  })();
 
   /* kartice tipova gojaznosti - otvaranje na hover i na klik */
   var expCards = document.querySelectorAll('#expander .exp-card');
